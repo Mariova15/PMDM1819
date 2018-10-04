@@ -38,6 +38,10 @@ public class Principal extends AppCompatActivity {
         });
 
         btnA3 = findViewById(R.id.buttonActivity3);
+
+    }
+
+    public void abrirA3(View view) {
         btnA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

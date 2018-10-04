@@ -23,6 +23,7 @@
         android:id="@+id/buttonActivity3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="abrirA3"
         android:text="Activity 3" />
 
 </LinearLayout>
