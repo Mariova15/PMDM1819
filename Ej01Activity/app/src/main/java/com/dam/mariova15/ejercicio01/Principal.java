@@ -38,7 +38,7 @@ public class Principal extends AppCompatActivity {
         });
 
         btnA3 = findViewById(R.id.buttonActivity3);
-        btnA2.setOnClickListener(new View.OnClickListener() {
+        btnA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent A3 = new Intent(Principal.this, Activity3.class);
