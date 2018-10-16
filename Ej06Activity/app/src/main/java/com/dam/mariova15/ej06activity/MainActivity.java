@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int estado = 0;
+    int estado;
 
     EditText etNombre;
     Button btnAceptar;
@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             int temp = savedInstanceState.getInt("ESTADO");
-            if (temp ==1){
+            if (temp == 0) {
                 etNombre.setVisibility(View.GONE);
-            } else{
+            } else {
                 etNombre.setVisibility(View.VISIBLE);
             }
         }
@@ -56,17 +56,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void ocultar(View v) {
         etNombre.setVisibility(View.GONE);
-        estado = 1;
+        estado = 0;
     }
 
     public void mostrar(View view) {
         etNombre.setVisibility(View.VISIBLE);
-        estado = 2;
+        estado = 1;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putInt("ESTADO", estado);
+        super.onSaveInstanceState(outState);
+
     }
+    
 }
