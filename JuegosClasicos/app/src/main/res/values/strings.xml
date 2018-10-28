@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">JuegosClasicos</string>
+    <string name="login">Login</string>
+    <string name="registro">Registrarse</string>
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="nombre">Nombre</string>
+    <string name="contrasenna">Contraseña</string>
+
+
 </resources>
