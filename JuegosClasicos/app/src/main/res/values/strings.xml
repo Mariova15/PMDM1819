@@ -5,6 +5,7 @@
 
     <string name="title_activity_login">Sign in</string>
     <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
     <string name="contrasenna">Contraseña</string>
 
 

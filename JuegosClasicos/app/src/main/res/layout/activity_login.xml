@@ -7,19 +7,21 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:id="@+id/textViewNombre"
+    <EditText
+        android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nombre"
-        android:textSize="24sp" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nombre" />
 
-    <TextView
-        android:id="@+id/textViewPass"
+    <EditText
+        android:id="@+id/editTextPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/contrasenna"
-        android:textSize="24sp" />
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="@string/contrasenna" />
 
     <Button
         android:id="@+id/buttonRegistrar"
