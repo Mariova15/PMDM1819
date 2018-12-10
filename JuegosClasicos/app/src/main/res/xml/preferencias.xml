@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="prefk_generales"
+        android:title="@string/general">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="prefk_musica"
+            android:summary="@string/prefs_musica"
+            android:title="@string/preft_musica" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

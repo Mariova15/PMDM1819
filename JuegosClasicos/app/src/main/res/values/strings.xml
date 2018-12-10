@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Juegos clasico</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">login</string>
+    <string name="sign_up">registro</string>
+    <string name="pass">contraseña</string>
+    <string name="email">email</string>
+    <string name="user">usuario</string>
+    <string name="jugar">jugar</string>
+    <string name="opciones">opciones</string>
+    <string name="creditos">creditos</string>
+    <string name="salir">salir</string>
+    <string name="general">Preferencias generales</string>
+    <string name="prefs_musica">música</string>
+    <string name="preft_musica">música</string>
+</resources>
