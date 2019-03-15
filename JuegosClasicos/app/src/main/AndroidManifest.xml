@@ -17,7 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistroActivity" />
-        <activity android:name=".PrincipalActivity"></activity>
+        <activity android:name=".PrincipalActivity" />
+        <activity android:name=".OpcionesActivity" />
+
+        <service
+            android:name=".ServicioMusica"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
