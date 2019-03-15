@@ -1,6 +1,7 @@
 package com.example.mario.juegosclasicos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -59,11 +60,10 @@ public class RegistroFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 saveData(etNombreRegistro.getText().toString(),etEmailRegistro.getText().toString(),etPassRegistro.getText().toString());
-                loadData();
-                //Toast.makeText(getContext(), "Usuario registrado", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
             }
         });
-
         return view;
     }
 
@@ -100,15 +100,5 @@ public class RegistroFragment extends Fragment {
         editor.apply();
 
     }
-
-    public void loadData() {
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("datos-usuario", MODE_PRIVATE);
-        String nombre = sharedPreferences.getString("nombre", "");
-        String email = sharedPreferences.getString("email", "");
-        String password = sharedPreferences.getString("password", "");
-
-        Toast.makeText(getContext(), nombre + " "+ email + " " + password, Toast.LENGTH_SHORT).show();
-    }
-
 
 }

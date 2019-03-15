@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RegistroActivity">
 
     <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.mario.juegosclasicos.LoginFragment"
+        android:id="@+id/fragmentRegistro"
+        android:name="com.example.mario.juegosclasicos.RegistroFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -19,5 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_registro" />
 </android.support.constraint.ConstraintLayout>

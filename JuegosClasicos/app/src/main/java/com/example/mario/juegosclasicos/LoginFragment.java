@@ -1,6 +1,7 @@
 package com.example.mario.juegosclasicos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -57,12 +58,19 @@ public class LoginFragment extends Fragment {
         btnLogin = view.findViewById(R.id.buttonLogin);
         btnRegistroLogin = view.findViewById(R.id.buttonRegistroLogin);
 
+        if(!comprobarUserGuardado()){
+            Intent intent = new Intent(getActivity(), RegistroActivity.class);
+            startActivity(intent);
+        }
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if(loadData(etEmailLogin.getText().toString(), etPassLogin.getText().toString())){
                     Toast.makeText(getContext(), "Login correcto", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), PrincipalActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getContext(), "Datos incorrectos", Toast.LENGTH_SHORT).show();
                 }
@@ -73,10 +81,15 @@ public class LoginFragment extends Fragment {
         btnRegistroLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                /*RegistroFragment registroFragment = new RegistroFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                //fragmentTransaction.replace(R.id.);
+                fragmentTransaction.remove(fragmentManager.findFragmentById(R.id.fragment));
+                fragmentTransaction.replace(R.id.fragment,registroFragment);
+                fragmentTransaction.commit();*/
+
+                Intent intent = new Intent(getActivity(), RegistroActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -116,7 +129,17 @@ public class LoginFragment extends Fragment {
         }else{
             return false;
         }
-
         //Toast.makeText(getContext(), nombre + " "+ email + " " + password, Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean comprobarUserGuardado(){
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("datos-usuario", MODE_PRIVATE);
+        String nombre = sharedPreferences.getString("nombre", null);
+
+        if(nombre == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
