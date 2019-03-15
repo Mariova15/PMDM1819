@@ -22,6 +22,17 @@ public class LoginActivity extends AppCompatActivity implements RegistroFragment
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        comprobarMusica();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        comprobarMusica();
+    }
 
     public void comprobarMusica(){
 

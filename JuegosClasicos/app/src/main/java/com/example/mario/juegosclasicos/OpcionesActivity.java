@@ -1,5 +1,6 @@
 package com.example.mario.juegosclasicos;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +15,30 @@ public class OpcionesActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new OpcionesFragment())
                 .commit();
+    }
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        comprobarMusica();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        comprobarMusica();
+    }
+
+    public void comprobarMusica(){
+
+        SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(OpcionesActivity.this);
+        if(preferencias.getBoolean("switch_preference_musica", false)){
+
+            startService(new Intent(OpcionesActivity.this, ServicioMusica.class));
+        }else{
+            stopService(new Intent(OpcionesActivity.this, ServicioMusica.class));
+        }
 
     }
+
 }

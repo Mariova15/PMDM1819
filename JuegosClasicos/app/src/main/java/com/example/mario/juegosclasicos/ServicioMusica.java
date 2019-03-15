@@ -10,15 +10,10 @@ public class ServicioMusica extends Service {
     public static final String ACCION_REPRODUCTOR_PAUSADO="com.example.mario.juegosclasico.intent.action.ACCION_REPRODUCTOR_PAUSADO";
     private MediaPlayer mp;
 
-
-    public ServicioMusica() {
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
         mp = MediaPlayer.create(this,R.raw.audio);
-
     }
 
 
