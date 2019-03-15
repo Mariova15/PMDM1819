@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements RegistroFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements RegistroFragment.OnFragmentInteractionListener, LoginFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
