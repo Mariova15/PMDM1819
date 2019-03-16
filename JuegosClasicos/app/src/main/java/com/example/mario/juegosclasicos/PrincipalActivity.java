@@ -46,5 +46,15 @@ public class PrincipalActivity extends AppCompatActivity {
                 Toast.makeText(PrincipalActivity.this, temp, Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnJugar = findViewById(R.id.buttonJugar);
+
+        btnJugar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PrincipalActivity.this, SolitarioActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

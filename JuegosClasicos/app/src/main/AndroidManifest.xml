@@ -23,7 +23,9 @@
         <service
             android:name=".ServicioMusica"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".SolitarioActivity"></activity>
     </application>
 
 </manifest>
