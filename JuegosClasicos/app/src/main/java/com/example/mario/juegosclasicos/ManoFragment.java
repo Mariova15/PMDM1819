@@ -48,8 +48,8 @@ public class ManoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mano, container, false);
 
-        listaCartas = new ArrayList<>();
-        generarListaCartas();
+        listaCartas = SolitarioActivity.listaCartasMano;
+        //generarListaCartas();
 
 
 

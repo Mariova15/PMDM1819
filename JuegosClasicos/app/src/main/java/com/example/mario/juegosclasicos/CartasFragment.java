@@ -46,13 +46,15 @@ public class CartasFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_cartas, container, false);
 
-        listaCartas = new ArrayList<>();
+        //listaCartas = new ArrayList<>();
+
+        listaCartas = SolitarioActivity.listaCartasMesa;
 
         recyclerView = view.findViewById(R.id.RVCartas);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 9));
 
-        generarListaCartas();
+        //generarListaCartas();
 
         AdapterCartas adapterCartas = new AdapterCartas(listaCartas);
 
