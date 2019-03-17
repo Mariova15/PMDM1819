@@ -9,7 +9,7 @@
     android:configChanges="orientation|keyboardHidden">
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/fragmentCartas"
         android:name="com.example.mario.juegosclasicos.CartasFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -19,12 +19,12 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fragment2"
+        app:layout_constraintStart_toEndOf="@+id/fragmentMano"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_cartas" />
 
     <fragment
-        android:id="@+id/fragment2"
+        android:id="@+id/fragmentMano"
         android:name="com.example.mario.juegosclasicos.ManoFragment"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

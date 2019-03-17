@@ -59,10 +59,11 @@ public class CartasFragment extends Fragment {
         adapterCartas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 listaCartas.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
                 recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
                 Toast.makeText(getContext(), listaCartas.get(
-                        recyclerView.getChildAdapterPosition(v)).getPalo()+ " " + listaCartas.get(
+                        recyclerView.getChildAdapterPosition(v)).getPalo() + " " + listaCartas.get(
                         recyclerView.getChildAdapterPosition(v)).getValor(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -79,12 +80,12 @@ public class CartasFragment extends Fragment {
         int valor = 0;
         int palo = 0;
         for (int i = 0; i < imgCartas.length(); i++) {
-            if(valor == 10){
+            if (valor == 10) {
                 valor = 0;
                 palo++;
             }
             listaCartas.add(new Carta(imgCartas.getDrawable(i)
-                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo) ,valor));
+                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo), valor));
             valor++;
         }
 
