@@ -62,7 +62,8 @@ public class CartasFragment extends Fragment {
                 listaCartas.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
                 recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
                 Toast.makeText(getContext(), listaCartas.get(
-                        recyclerView.getChildAdapterPosition(v)).getPalo(), Toast.LENGTH_SHORT).show();
+                        recyclerView.getChildAdapterPosition(v)).getPalo()+ " " + listaCartas.get(
+                        recyclerView.getChildAdapterPosition(v)).getValor(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -78,7 +79,7 @@ public class CartasFragment extends Fragment {
         int valor = 0;
         int palo = 0;
         for (int i = 0; i < imgCartas.length(); i++) {
-            if(valor == 8){
+            if(valor == 10){
                 valor = 0;
                 palo++;
             }

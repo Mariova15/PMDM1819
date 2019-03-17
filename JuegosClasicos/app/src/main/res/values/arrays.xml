@@ -2,6 +2,7 @@
 <resources>
     <array name="img_carta">
         <item>@drawable/baston</item>
+        <item>@drawable/dos_bastos</item>
         <item>@drawable/tres_bastos</item>
         <item>@drawable/cuatro_bastos</item>
         <item>@drawable/cinco_bastos</item>
@@ -12,6 +13,7 @@
         <item>@drawable/rey_bastos</item>
 
         <item>@drawable/copon</item>
+        <item>@drawable/dos_copas</item>
         <item>@drawable/tres_copas</item>
         <item>@drawable/cuatro_copas</item>
         <item>@drawable/cinco_copas</item>
@@ -22,6 +24,7 @@
         <item>@drawable/rey_copas</item>
 
         <item>@drawable/espadona</item>
+        <item>@drawable/dos_espadas</item>
         <item>@drawable/tres_espadas</item>
         <item>@drawable/cuatro_espadas</item>
         <item>@drawable/cinco_espadas</item>
@@ -32,6 +35,7 @@
         <item>@drawable/rey_espadas</item>
 
         <item>@drawable/orona</item>
+        <item>@drawable/dos_oros</item>
         <item>@drawable/tres_oros</item>
         <item>@drawable/cuatro_oros</item>
         <item>@drawable/cinco_oros</item>
