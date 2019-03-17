@@ -10,9 +10,11 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class AdapterCartas extends RecyclerView.Adapter<AdapterCartas.ViewHolderDatos> {
+public class AdapterCartas extends RecyclerView.Adapter<AdapterCartas.ViewHolderDatos> implements View.OnClickListener {
 
-    ArrayList<Carta> listaCartas;
+    private ArrayList<Carta> listaCartas;
+
+    private View.OnClickListener listener;
 
     public AdapterCartas(ArrayList<Carta> listaCartas) {
         this.listaCartas = listaCartas;
@@ -23,17 +25,31 @@ public class AdapterCartas extends RecyclerView.Adapter<AdapterCartas.ViewHolder
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.carta, null, false);
+
+        view.setOnClickListener(this);
+
         return new ViewHolderDatos(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos viewHolderDatos, int i) {
-        viewHolderDatos.asignarDatos(listaCartas.get(i).getImgCarta());
+        viewHolderDatos.asignarDatos(listaCartas.get(i).getVistaCarta());
     }
 
     @Override
     public int getItemCount() {
         return listaCartas.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(listener != null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {

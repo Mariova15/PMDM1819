@@ -25,7 +25,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".SolitarioActivity"></activity>
+        <activity android:name=".SolitarioActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

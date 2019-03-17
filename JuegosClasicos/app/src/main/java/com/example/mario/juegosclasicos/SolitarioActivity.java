@@ -13,7 +13,7 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onFragmentInteraction(int posCarta) {
 
     }
 }

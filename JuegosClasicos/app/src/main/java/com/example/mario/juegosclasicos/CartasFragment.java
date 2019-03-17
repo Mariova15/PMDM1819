@@ -1,6 +1,7 @@
 package com.example.mario.juegosclasicos;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -48,11 +50,20 @@ public class CartasFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.RVCartas);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),9));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 9));
 
         generarListaCartas();
 
         AdapterCartas adapterCartas = new AdapterCartas(listaCartas);
+
+        adapterCartas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listaCartas.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
+                Toast.makeText(getContext(), listaCartas.get(
+                        recyclerView.getChildAdapterPosition(v)).getPalo(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         recyclerView.setAdapter(adapterCartas);
 
@@ -60,16 +71,19 @@ public class CartasFragment extends Fragment {
     }
 
     private void generarListaCartas() {
-        Field[] drawablesFields = com.example.mario.juegosclasicos.R.drawable.class.getFields();
-        //ArrayList<Drawable> drawables = new ArrayList<>();
 
-        for (Field field : drawablesFields) {
-            try {
-                //drawables.add(getResources().getDrawable(field.getInt(null)));
-                listaCartas.add(new Carta(getResources().getDrawable(field.getInt(null)), field.getName()));
-            } catch (Exception e) {
-                e.printStackTrace();
+        TypedArray imgCartas = getResources().obtainTypedArray(R.array.img_carta);
+        TypedArray palosCartas = getResources().obtainTypedArray(R.array.nombre_palos);
+        int valor = 0;
+        int palo = 0;
+        for (int i = 0; i < imgCartas.length(); i++) {
+            if(valor == 8){
+                valor = 0;
+                palo++;
             }
+            listaCartas.add(new Carta(imgCartas.getDrawable(i)
+                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo) ,valor));
+            valor++;
         }
 
     }
@@ -92,6 +106,6 @@ public class CartasFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(int posCarta);
     }
 }

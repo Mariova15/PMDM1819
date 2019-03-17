@@ -5,20 +5,40 @@ import android.graphics.drawable.Drawable;
 
 public class Carta {
 
-    private Drawable imgCarta;
-    private String nombre;
+    private Drawable imgCarta, reversoCarta, vistaCarta;
+    private int valor;
+    private String palo;
 
-    public Carta(Drawable imgCarta, String nombre) {
+    public Carta(Drawable imgCarta,Drawable reversoCarta ,String palo ,int valor) {
         this.imgCarta = imgCarta;
-        this.nombre = nombre;
+        this.reversoCarta = reversoCarta;
+        this.vistaCarta = reversoCarta;
+        this.valor = valor;
+        this.palo = palo;
     }
 
     public Drawable getImgCarta() {
         return imgCarta;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Drawable getReversoCarta() {
+        return reversoCarta;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public Drawable getVistaCarta() {
+        return vistaCarta;
+    }
+
+    public String getPalo() {
+        return palo;
+    }
+
+    public void darVuelta(){
+        this.vistaCarta = imgCarta;
     }
 
 }
