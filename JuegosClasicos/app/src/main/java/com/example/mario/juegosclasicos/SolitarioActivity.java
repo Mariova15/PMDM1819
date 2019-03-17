@@ -9,9 +9,11 @@ import android.widget.Toast;
 import android.app.FragmentManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class SolitarioActivity extends AppCompatActivity implements CartasFragment.OnFragmentInteractionListener, ManoFragment.OnFragmentInteractionListener {
+public class SolitarioActivity extends AppCompatActivity implements CartasFragment.OnFragmentCartasMesaListener, ManoFragment.OnFragmentManoListener {
 
+    public static ArrayList<Carta> listaCartas = new ArrayList<>();
     public static ArrayList<Carta> listaCartasMesa = new ArrayList<>();
     public static ArrayList<Carta> listaCartasMano = new ArrayList<>();
 
@@ -23,12 +25,12 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
     }
 
     @Override
-    public void onFragmentInteraction(int posCarta) {
+    public void OnFragmentCartasMesaListener(int posCarta) {
 
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void OnFragmentManoListener(int posCarta) {
 
     }
 
@@ -37,19 +39,25 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
         TypedArray palosCartas = getResources().obtainTypedArray(R.array.nombre_palos);
         int valor = 0;
         int palo = 0;
+        int id = 0;
         for (int i = 0; i < imgCartas.length(); i++) {
             if (valor == 10) {
                 valor = 0;
                 palo++;
             }
-            listaCartasMesa.add(new Carta(imgCartas.getDrawable(i)
-                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo), valor));
+            listaCartas.add(new Carta(imgCartas.getDrawable(i)
+                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo), valor, id));
             valor++;
+            id++;
         }
         generarListaCartasMano();
     }
 
     private void generarListaCartasMano(){
+        for (Carta cartaAnnadir : listaCartas ) {
+            listaCartasMesa.add(cartaAnnadir);
+        }
+        Collections.shuffle(listaCartasMesa);
         for (int i = 0; i < 4; i++) {
             listaCartasMano.add(listaCartasMesa.get(i));
         }

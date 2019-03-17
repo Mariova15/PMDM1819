@@ -6,15 +6,16 @@ import android.graphics.drawable.Drawable;
 public class Carta {
 
     private Drawable imgCarta, reversoCarta, vistaCarta;
-    private int valor;
+    private int valor, id;
     private String palo;
 
-    public Carta(Drawable imgCarta,Drawable reversoCarta ,String palo ,int valor) {
+    public Carta(Drawable imgCarta,Drawable reversoCarta ,String palo ,int valor, int id) {
         this.imgCarta = imgCarta;
         this.reversoCarta = reversoCarta;
         this.vistaCarta = reversoCarta;
         this.valor = valor;
         this.palo = palo;
+        this.id = id;
     }
 
     public Drawable getImgCarta() {
@@ -35,6 +36,10 @@ public class Carta {
 
     public String getPalo() {
         return palo;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void darVuelta(){

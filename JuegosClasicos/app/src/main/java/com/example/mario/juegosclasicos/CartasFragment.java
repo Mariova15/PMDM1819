@@ -22,10 +22,13 @@ import static java.util.Arrays.asList;
 
 public class CartasFragment extends Fragment {
 
+    private ArrayList<Carta> listaCartasMesa;
     private ArrayList<Carta> listaCartas;
     private RecyclerView recyclerView;
 
-    private OnFragmentInteractionListener mListener;
+    private Carta cartaMano;
+
+    private OnFragmentCartasMesaListener mListener;
 
     public CartasFragment() {
     }
@@ -46,26 +49,24 @@ public class CartasFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_cartas, container, false);
 
-        //listaCartas = new ArrayList<>();
-
-        listaCartas = SolitarioActivity.listaCartasMesa;
+        listaCartas = SolitarioActivity.listaCartas;
+        listaCartasMesa = SolitarioActivity.listaCartasMesa;
 
         recyclerView = view.findViewById(R.id.RVCartas);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 9));
 
-        //generarListaCartas();
 
-        AdapterCartas adapterCartas = new AdapterCartas(listaCartas);
+        AdapterCartas adapterCartas = new AdapterCartas(listaCartasMesa);
 
         adapterCartas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                listaCartas.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
+                listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
                 recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
-                Toast.makeText(getContext(), listaCartas.get(
-                        recyclerView.getChildAdapterPosition(v)).getPalo() + " " + listaCartas.get(
+                Toast.makeText(getContext(), listaCartasMesa.get(
+                        recyclerView.getChildAdapterPosition(v)).getPalo() + " " + listaCartasMesa.get(
                         recyclerView.getChildAdapterPosition(v)).getValor(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -75,29 +76,11 @@ public class CartasFragment extends Fragment {
         return view;
     }
 
-    private void generarListaCartas() {
-
-        TypedArray imgCartas = getResources().obtainTypedArray(R.array.img_carta);
-        TypedArray palosCartas = getResources().obtainTypedArray(R.array.nombre_palos);
-        int valor = 0;
-        int palo = 0;
-        for (int i = 0; i < imgCartas.length(); i++) {
-            if (valor == 10) {
-                valor = 0;
-                palo++;
-            }
-            listaCartas.add(new Carta(imgCartas.getDrawable(i)
-                    , getResources().getDrawable(R.drawable.reverso_carta), palosCartas.getString(palo), valor));
-            valor++;
-        }
-
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnFragmentCartasMesaListener) {
+            mListener = (OnFragmentCartasMesaListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -110,7 +93,15 @@ public class CartasFragment extends Fragment {
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(int posCarta);
+    public interface OnFragmentCartasMesaListener {
+        void OnFragmentCartasMesaListener(int posCarta);
+    }
+
+    private void buscarCarta(int idCarta){
+        for (Carta cartaBusqueda: listaCartas ) {
+            if(cartaBusqueda.getId() == idCarta){
+                cartaMano = cartaBusqueda;
+            }
+        }
     }
 }
