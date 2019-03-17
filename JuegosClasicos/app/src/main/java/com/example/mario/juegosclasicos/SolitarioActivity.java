@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SolitarioActivity extends AppCompatActivity implements CartasFragment.OnFragmentInteractionListener {
+public class SolitarioActivity extends AppCompatActivity implements CartasFragment.OnFragmentInteractionListener, ManoFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +14,11 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
 
     @Override
     public void onFragmentInteraction(int posCarta) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }
