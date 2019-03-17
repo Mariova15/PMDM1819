@@ -60,6 +60,7 @@ public class CartasFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 listaCartas.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
+                recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
                 Toast.makeText(getContext(), listaCartas.get(
                         recyclerView.getChildAdapterPosition(v)).getPalo(), Toast.LENGTH_SHORT).show();
             }
