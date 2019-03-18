@@ -2,6 +2,8 @@ package com.example.mario.juegosclasicos;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +26,9 @@ public class ManoFragment extends Fragment {
 
     private Carta cartaMano;
 
+    private SoundPool soundPool;
+    private int sonidoCarta;
+
     private OnFragmentManoListener mListener;
 
     public ManoFragment() {
@@ -45,6 +50,9 @@ public class ManoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mano, container, false);
 
+        soundPool = new SoundPool( 5, AudioManager.STREAM_MUSIC , 0);
+        sonidoCarta = soundPool.load(getContext(),R.raw.sonidocarta,0);
+
         listaCartasMano = SolitarioActivity.listaCartasMano;
         listaCartas = SolitarioActivity.listaCartas;
 
@@ -61,6 +69,7 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(0);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                sonidoCarta();
                 Toast.makeText(getContext(),
                         "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
@@ -73,6 +82,7 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(1);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                sonidoCarta();
                 Toast.makeText(getContext(),
                         "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
@@ -85,6 +95,7 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(2);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                sonidoCarta();
                 Toast.makeText(getContext(),
                         "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
@@ -97,6 +108,7 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(3);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                sonidoCarta();
                 Toast.makeText(getContext(),
                         "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
@@ -139,6 +151,10 @@ public class ManoFragment extends Fragment {
         if (mListener != null) {
             mListener.OnFragmentManoListener(idCarta);
         }
+    }
+
+    private void sonidoCarta(){
+        soundPool.play(sonidoCarta, 1, 1, 1, 0, 1);
     }
 
 }

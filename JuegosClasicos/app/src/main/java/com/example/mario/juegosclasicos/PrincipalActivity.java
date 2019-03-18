@@ -56,5 +56,16 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnSalir = findViewById(R.id.buttonSalir);
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //finish();
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
+            }
+        });
     }
 }

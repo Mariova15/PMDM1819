@@ -3,6 +3,8 @@ package com.example.mario.juegosclasicos;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,6 +30,9 @@ public class CartasFragment extends Fragment {
 
     private Carta cartaMano;
 
+    private SoundPool soundPool;
+    private int sonidoCarta;
+
     private OnFragmentCartasMesaListener mListener;
 
     public CartasFragment() {
@@ -49,6 +54,9 @@ public class CartasFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_cartas, container, false);
 
+        soundPool = new SoundPool( 5, AudioManager.STREAM_MUSIC , 0);
+        sonidoCarta = soundPool.load(getContext(),R.raw.sonidocarta,0);
+
         listaCartas = SolitarioActivity.listaCartas;
         listaCartasMesa = SolitarioActivity.listaCartasMesa;
 
@@ -66,6 +74,7 @@ public class CartasFragment extends Fragment {
             public void onClick(View v) {
 
                 if(cartaMano.getId() == recyclerView.getChildAdapterPosition(v)){
+                    sonidoCarta();
                     Toast.makeText(getContext(), "Colocas el "+ cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
                     Carta cartaTemp = cartaMano;
                     listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
@@ -74,7 +83,6 @@ public class CartasFragment extends Fragment {
                     cartaTemp.darVuelta();
                     listaCartasMesa.set(recyclerView.getChildAdapterPosition(v),cartaTemp);
                     recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
-
                 }else{
                     Toast.makeText(getContext(), "Posición equivocada", Toast.LENGTH_SHORT).show();
                 }
@@ -121,4 +129,9 @@ public class CartasFragment extends Fragment {
             mListener.OnFragmentCartasMesaListener(idCarta);
         }
     }
+
+    private void sonidoCarta(){
+        soundPool.play(sonidoCarta, 1, 1, 1, 0, 1);
+    }
+
 }
