@@ -42,6 +42,14 @@ public class Carta {
         return id;
     }
 
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public void setPalo(String palo) {
+        this.palo = palo;
+    }
+
     public void darVuelta(){
         this.vistaCarta = imgCarta;
     }

@@ -65,10 +65,8 @@ public class CartasFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //Toast.makeText(getContext(), ""+cartaMano.getId(), Toast.LENGTH_SHORT).show();
-
-
                 if(cartaMano.getId() == recyclerView.getChildAdapterPosition(v)){
+                    Toast.makeText(getContext(), "Colocas el "+ cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
                     Carta cartaTemp = cartaMano;
                     listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
                     cartaMano = listaCartasMesa.get(recyclerView.getChildAdapterPosition(v));
@@ -77,9 +75,6 @@ public class CartasFragment extends Fragment {
                     listaCartasMesa.set(recyclerView.getChildAdapterPosition(v),cartaTemp);
                     recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
 
-                    Toast.makeText(getContext(), listaCartasMesa.get(
-                            recyclerView.getChildAdapterPosition(v)).getPalo() + " " + listaCartasMesa.get(
-                            recyclerView.getChildAdapterPosition(v)).getValor(), Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getContext(), "Posición equivocada", Toast.LENGTH_SHORT).show();
                 }

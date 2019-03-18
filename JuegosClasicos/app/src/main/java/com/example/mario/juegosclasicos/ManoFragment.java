@@ -61,6 +61,8 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(0);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                Toast.makeText(getContext(),
+                        "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -71,6 +73,8 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(1);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                Toast.makeText(getContext(),
+                        "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,6 +85,8 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(2);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                Toast.makeText(getContext(),
+                        "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,6 +97,8 @@ public class ManoFragment extends Fragment {
                 cartaMano = listaCartasMano.get(3);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
                 pasaDatos(cartaMano.getId());
+                Toast.makeText(getContext(),
+                        "Sacas el "+cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
             }
         });
 

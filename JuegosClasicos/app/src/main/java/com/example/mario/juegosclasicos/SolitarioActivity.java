@@ -42,12 +42,12 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
     private void generarListaCartas() {
         TypedArray imgCartas = getResources().obtainTypedArray(R.array.img_carta);
         TypedArray palosCartas = getResources().obtainTypedArray(R.array.nombre_palos);
-        int valor = 0;
+        int valor = 1;
         int palo = 0;
         int id = 0;
         for (int i = 0; i < imgCartas.length(); i++) {
             if (valor == 10) {
-                valor = 0;
+                valor = 1;
                 palo++;
             }
             listaCartas.add(new Carta(imgCartas.getDrawable(i)
@@ -55,6 +55,15 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
             valor++;
             id++;
         }
+        listaCartas.get(36).setPalo("oros");
+        listaCartas.get(36).setValor(10);
+        listaCartas.get(37).setPalo("copas");
+        listaCartas.get(37).setValor(10);
+        listaCartas.get(38).setPalo("espadas");
+        listaCartas.get(38).setValor(10);
+        listaCartas.get(39).setPalo("bastos");
+        listaCartas.get(39).setValor(10);
+
         generarListaCartasMano();
     }
 
