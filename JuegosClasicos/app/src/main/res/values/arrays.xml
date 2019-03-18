@@ -50,10 +50,10 @@
     </array>
 
     <string-array name="nombre_palos">
-        <item>bastos</item>
+        <item>oros</item>
         <item>copas</item>
         <item>espadas</item>
-        <item>oros</item>
+        <item>bastos</item>
     </string-array>
 
 </resources>
