@@ -59,6 +59,7 @@ public class ManoFragment extends Fragment {
                 ivCarta1.setImageDrawable(listaCartasMano.get(0).getImgCarta());
                 cartaMano = listaCartasMano.get(0);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
+                pasaDatos(cartaMano.getId());
             }
         });
 
@@ -110,7 +111,22 @@ public class ManoFragment extends Fragment {
     }
 
     public interface OnFragmentManoListener {
-        void OnFragmentManoListener(int posCarta);
+        void OnFragmentManoListener(int idCarta);
+    }
+
+    public void buscarCarta(int idCarta){
+        for (Carta cartaBusqueda: listaCartas ) {
+            if(cartaBusqueda.getId() == idCarta){
+                cartaMano = cartaBusqueda;
+            }
+        }
+        ivMano.setImageDrawable(cartaMano.getImgCarta());
+    }
+
+    private void pasaDatos(int idCarta){
+        if (mListener != null) {
+            mListener.OnFragmentManoListener(idCarta);
+        }
     }
 
 }

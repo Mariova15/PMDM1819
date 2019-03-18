@@ -59,15 +59,20 @@ public class CartasFragment extends Fragment {
 
         AdapterCartas adapterCartas = new AdapterCartas(listaCartasMesa);
 
+
+
         adapterCartas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
+                cartaMano = listaCartasMesa.get(recyclerView.getChildAdapterPosition(v));
+                pasaDatos(cartaMano.getId());
                 recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
                 Toast.makeText(getContext(), listaCartasMesa.get(
                         recyclerView.getChildAdapterPosition(v)).getPalo() + " " + listaCartasMesa.get(
                         recyclerView.getChildAdapterPosition(v)).getValor(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -94,14 +99,20 @@ public class CartasFragment extends Fragment {
     }
 
     public interface OnFragmentCartasMesaListener {
-        void OnFragmentCartasMesaListener(int posCarta);
+        void OnFragmentCartasMesaListener(int idCarta);
     }
 
-    private void buscarCarta(int idCarta){
+    public void buscarCarta(int idCarta){
         for (Carta cartaBusqueda: listaCartas ) {
             if(cartaBusqueda.getId() == idCarta){
                 cartaMano = cartaBusqueda;
             }
+        }
+    }
+
+    private void pasaDatos(int idCarta){
+        if (mListener != null) {
+            mListener.OnFragmentCartasMesaListener(idCarta);
         }
     }
 }

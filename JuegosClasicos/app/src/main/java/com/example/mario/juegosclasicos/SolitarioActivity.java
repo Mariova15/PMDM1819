@@ -25,12 +25,17 @@ public class SolitarioActivity extends AppCompatActivity implements CartasFragme
     }
 
     @Override
-    public void OnFragmentCartasMesaListener(int posCarta) {
+    public void OnFragmentCartasMesaListener(int idCarta) {
+
+        ManoFragment manoFragment = (ManoFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentMano);
+        manoFragment.buscarCarta(idCarta);
 
     }
 
     @Override
-    public void OnFragmentManoListener(int posCarta) {
+    public void OnFragmentManoListener(int idCarta) {
+        CartasFragment cartasFragment = (CartasFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentCartas);
+        cartasFragment.buscarCarta(idCarta);
 
     }
 
