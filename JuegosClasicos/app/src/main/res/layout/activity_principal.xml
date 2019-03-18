@@ -7,6 +7,7 @@
     tools:context=".PrincipalActivity">
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonJugar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonOpciones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,6 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonCreditos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -43,6 +46,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonSalir"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -22,6 +22,7 @@
         app:layout_constraintStart_toEndOf="@+id/textViewNombreRegistro" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

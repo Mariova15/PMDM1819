@@ -57,6 +57,7 @@
         app:layout_constraintStart_toEndOf="@+id/textViewPassLogin" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -70,6 +71,7 @@
         app:layout_constraintStart_toStartOf="@+id/textViewPassLogin" />
 
     <Button
+        style="@style/estilo_boton"
         android:id="@+id/buttonRegistroLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

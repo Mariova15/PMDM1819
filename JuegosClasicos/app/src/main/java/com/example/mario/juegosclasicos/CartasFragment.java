@@ -73,18 +73,22 @@ public class CartasFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(cartaMano.getId() == recyclerView.getChildAdapterPosition(v)){
-                    sonidoCarta();
-                    Toast.makeText(getContext(), "Colocas el "+ cartaMano.getValor() + " de "+ cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
-                    Carta cartaTemp = cartaMano;
-                    listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
-                    cartaMano = listaCartasMesa.get(recyclerView.getChildAdapterPosition(v));
-                    pasaDatos(cartaMano.getId());
-                    cartaTemp.darVuelta();
-                    listaCartasMesa.set(recyclerView.getChildAdapterPosition(v),cartaTemp);
-                    recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
+                if(cartaMano != null) {
+                    if (cartaMano.getId() == recyclerView.getChildAdapterPosition(v)) {
+                        sonidoCarta();
+                        Toast.makeText(getContext(), "Colocas el " + cartaMano.getValor() + " de " + cartaMano.getPalo(), Toast.LENGTH_SHORT).show();
+                        Carta cartaTemp = cartaMano;
+                        listaCartasMesa.get(recyclerView.getChildAdapterPosition(v)).darVuelta();
+                        cartaMano = listaCartasMesa.get(recyclerView.getChildAdapterPosition(v));
+                        pasaDatos(cartaMano.getId());
+                        cartaTemp.darVuelta();
+                        listaCartasMesa.set(recyclerView.getChildAdapterPosition(v), cartaTemp);
+                        recyclerView.getAdapter().notifyItemChanged(recyclerView.getChildAdapterPosition(v));
+                    } else {
+                        Toast.makeText(getContext(), "Posición equivocada", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
-                    Toast.makeText(getContext(), "Posición equivocada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Primero coge una carta de la parte izquierda", Toast.LENGTH_SHORT).show();
                 }
 
             }
