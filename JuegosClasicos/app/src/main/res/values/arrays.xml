@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="img_carta">
-        <item>@drawable/baston</item>
-        <item>@drawable/dos_bastos</item>
-        <item>@drawable/tres_bastos</item>
-        <item>@drawable/cuatro_bastos</item>
-        <item>@drawable/cinco_bastos</item>
-        <item>@drawable/seis_bastos</item>
-        <item>@drawable/siete_bastos</item>
-        <item>@drawable/sota_bastos</item>
-        <item>@drawable/caballo_bastos</item>
-        <item>@drawable/rey_bastos</item>
+        <item>@drawable/orona</item>
+        <item>@drawable/dos_oros</item>
+        <item>@drawable/tres_oros</item>
+        <item>@drawable/cuatro_oros</item>
+        <item>@drawable/cinco_oros</item>
+        <item>@drawable/seis_oros</item>
+        <item>@drawable/siete_oros</item>
+        <item>@drawable/sota_oros</item>
+        <item>@drawable/caballo_oros</item>
 
         <item>@drawable/copon</item>
         <item>@drawable/dos_copas</item>
@@ -21,7 +20,7 @@
         <item>@drawable/siete_copas</item>
         <item>@drawable/sota_copas</item>
         <item>@drawable/caballo_copas</item>
-        <item>@drawable/rey_copas</item>
+
 
         <item>@drawable/espadona</item>
         <item>@drawable/dos_espadas</item>
@@ -32,18 +31,22 @@
         <item>@drawable/siete_espadas</item>
         <item>@drawable/sota_espadas</item>
         <item>@drawable/caballo_espadas</item>
-        <item>@drawable/rey_espadas</item>
 
-        <item>@drawable/orona</item>
-        <item>@drawable/dos_oros</item>
-        <item>@drawable/tres_oros</item>
-        <item>@drawable/cuatro_oros</item>
-        <item>@drawable/cinco_oros</item>
-        <item>@drawable/seis_oros</item>
-        <item>@drawable/siete_oros</item>
-        <item>@drawable/sota_oros</item>
-        <item>@drawable/caballo_oros</item>
+        <item>@drawable/baston</item>
+        <item>@drawable/dos_bastos</item>
+        <item>@drawable/tres_bastos</item>
+        <item>@drawable/cuatro_bastos</item>
+        <item>@drawable/cinco_bastos</item>
+        <item>@drawable/seis_bastos</item>
+        <item>@drawable/siete_bastos</item>
+        <item>@drawable/sota_bastos</item>
+        <item>@drawable/caballo_bastos</item>
+
         <item>@drawable/rey_oros</item>
+        <item>@drawable/rey_copas</item>
+        <item>@drawable/rey_espadas</item>
+        <item>@drawable/rey_bastos</item>
+
     </array>
 
     <string-array name="nombre_palos">

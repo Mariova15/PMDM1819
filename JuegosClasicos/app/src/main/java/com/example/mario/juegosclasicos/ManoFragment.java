@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -69,6 +70,7 @@ public class ManoFragment extends Fragment {
                 ivCarta2.setImageDrawable(listaCartasMano.get(1).getImgCarta());
                 cartaMano = listaCartasMano.get(1);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
+                pasaDatos(cartaMano.getId());
             }
         });
 
@@ -78,6 +80,7 @@ public class ManoFragment extends Fragment {
                 ivCarta3.setImageDrawable(listaCartasMano.get(2).getImgCarta());
                 cartaMano = listaCartasMano.get(2);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
+                pasaDatos(cartaMano.getId());
             }
         });
 
@@ -87,6 +90,7 @@ public class ManoFragment extends Fragment {
                 ivCarta4.setImageDrawable(listaCartasMano.get(3).getImgCarta());
                 cartaMano = listaCartasMano.get(3);
                 ivMano.setImageDrawable(cartaMano.getImgCarta());
+                pasaDatos(cartaMano.getId());
             }
         });
 
